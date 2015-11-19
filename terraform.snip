@@ -76,6 +76,27 @@ snippet resource_aws_key_pair
     public_key = "${3:public_key}"
   }
 
+snippet resqurce_aws_security_group
+  resource "aws_security_group" "${1:name}" {
+    name = "${2:$1}"
+    description = "${3:desc}"
+
+    ingress {
+        from_port = ${4:from_port}
+        to_port = ${5:to_port}
+        protocol = "${5:tcp}"
+        cidr_blocks = ["${6:0.0.0.0/0}"]
+    }
+
+    egress {
+        from_port = ${7:0}
+        to_port = ${8:0}
+        protocol = "${9:-1}"
+        cidr_blocks = [${10:"0.0.0.0/0"}]
+    }
+
+  }
+
 ## other
 
 snippet output
