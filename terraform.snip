@@ -97,6 +97,24 @@ snippet resource_aws_security_group
 
   }
 
+snippet resource_aws_s3_bucket
+  resource "aws_s3_bucket" "${1:name}" {
+    bucket = "${2:$1}"
+    acl = "${3:private}"
+  }
+
+snippet resource_aws_s3_bucket_static_web
+  resource "aws_s3_bucket" "${1:name}" {
+    bucket = "${2:$1}"
+    acl = "${3:private}"
+    policy = "${4:${file("policy.json")}}"
+
+    website {
+        index_document = "${5:index.html}"
+        error_document = "${6:error.html}"
+    }
+  }
+
 ## other
 
 snippet output
