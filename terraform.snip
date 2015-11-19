@@ -1,6 +1,11 @@
 # variable
 snippet     variable
-  variable "${1:name}" {${2}}
+  variable "${1:name}" {
+      ${2}
+  }
+
+snippet     variable_empty
+  variable "${1:name}" {}
 
 # providers
 snippet provider
