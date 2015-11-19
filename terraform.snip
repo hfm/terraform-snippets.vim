@@ -57,3 +57,9 @@ snippet resource_aws_instance
     ami = "${2:ami-383c1956}"
     instance_type = "${3:t2.micro}"
   }
+
+snippet resource_aws_eip
+  resource "aws_eip" "${1:name}" {
+      instance = "aws_instance.${2:$1}.id"
+      vpc = ${3:true}
+  }
