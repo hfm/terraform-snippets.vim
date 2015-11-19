@@ -51,3 +51,9 @@ snippet resource
   resource "${1:type}" "${2:name}" {
       ${3:config}
   }
+
+snippet resource_aws_instance
+  resource "aws_instance" "${1:name}" {
+    ami = "${2:ami-383c1956}"
+    instance_type = "${3:t2.micro}"
+  }
