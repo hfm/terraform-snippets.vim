@@ -1,0 +1,43 @@
+# providers
+snippet provider
+  provider "${1:name}" {
+      ${2:config}
+  }
+
+snippet provider_aws
+  provider "aws" {
+      access_key = "${var.access_key}"
+      secret_key = "${var.secret_key}"
+      region = "${var.region}"
+  }
+
+snippet provider_openstack
+  provider "openstack" {
+      user_name  = "${var.user_name}"
+      tenant_name = "${var.tenant_name}"
+      password  = "${var.password}"
+      auth_url  = "${var.auth_url}"
+  }
+
+snippet provider_docker
+  provider "docker" {
+      host = "${1:${var.host}}"
+  }
+
+snippet provider_docker
+  provider "google" {
+      account_file = "${file("account.json")}"
+      project = "my-gce-project"
+      region = "us-central1"
+  }
+
+snippet provider_digitalocean
+  provider "digitalocean" {
+      token = "${var.do_token}"
+  }
+
+snippet provider_digitalocean
+  provider "consul" {
+      address = "demo.consul.io:80"
+      datacenter = "nyc1"
+  }
