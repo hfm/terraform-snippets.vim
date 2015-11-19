@@ -70,6 +70,12 @@ snippet resource_aws_eip
       vpc = ${3:true}
   }
 
+snippet resource_aws_key_pair
+  resource "aws_key_pair" "${1:name}" {
+    key_name = "${2:$1}"
+    public_key = "${3:public_key}"
+  }
+
 ## other
 
 snippet output
